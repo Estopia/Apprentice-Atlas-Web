@@ -51,15 +51,27 @@ jobs:
     needs: images
     runs-on: ubuntu-latest
     environment: staging
+    env:
+      PORTAINER_WEBHOOK: ${{ secrets.PORTAINER_STAGING_WEBHOOK }}
     steps:
       - name: Deploy exact image digests through Portainer
-        run: curl --fail --silent --show-error -X POST "${{ secrets.PORTAINER_STAGING_WEBHOOK }}"
+        if: env.PORTAINER_WEBHOOK != ''
+        run: curl --fail --silent --show-error -X POST "$PORTAINER_WEBHOOK"
+      - name: Report deployment configuration requirement
+        if: env.PORTAINER_WEBHOOK == ''
+        run: echo "Images published; configure PORTAINER_STAGING_WEBHOOK to enable automatic staging deployment."
 
   production:
     if: startsWith(github.ref, 'refs/tags/v')
     needs: [images, staging]
     runs-on: ubuntu-latest
     environment: production
+    env:
+      PORTAINER_WEBHOOK: ${{ secrets.PORTAINER_PRODUCTION_WEBHOOK }}
     steps:
       - name: Deploy promoted digests after manual approval
-        run: curl --fail --silent --show-error -X POST "${{ secrets.PORTAINER_PRODUCTION_WEBHOOK }}"
+        if: env.PORTAINER_WEBHOOK != ''
+        run: curl --fail --silent --show-error -X POST "$PORTAINER_WEBHOOK"
+      - name: Report deployment configuration requirement
+        if: env.PORTAINER_WEBHOOK == ''
+        run: echo "Images published; configure PORTAINER_PRODUCTION_WEBHOOK before promotion."
