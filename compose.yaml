@@ -1,0 +1,47 @@
+name: apprentice-atlas-web
+services:
+  site:
+    image: ${SITE_IMAGE:-ghcr.io/estopia/apprentice-atlas-web-site:local}
+    build:
+      context: .
+      dockerfile: apps/site/Dockerfile
+    init: true
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      CMS_INTERNAL_URL: http://cms:3001
+    ports:
+      - '127.0.0.1:${SITE_PORT:-3000}:3000'
+    depends_on:
+      cms:
+        condition: service_healthy
+    networks: [atlas-internal, proxy]
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+
+  cms:
+    image: ${CMS_IMAGE:-ghcr.io/estopia/apprentice-atlas-web-cms:local}
+    build:
+      context: .
+      dockerfile: apps/cms/Dockerfile
+    init: true
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      SITE_INTERNAL_URL: http://site:3000
+    ports:
+      - '127.0.0.1:${CMS_PORT:-3001}:3001'
+    networks: [atlas-internal, proxy]
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+
+networks:
+  atlas-internal:
+    internal: true
+  proxy:
+    external: true
+    name: ${PROXY_NETWORK:-proxy}

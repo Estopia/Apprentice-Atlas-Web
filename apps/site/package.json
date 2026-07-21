@@ -1,0 +1,46 @@
+{
+  "name": "@apprentice-atlas/site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start --port 3000",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@apprentice-atlas/content": "workspace:*",
+    "@apprentice-atlas/design-tokens": "workspace:*",
+    "@apprentice-atlas/email": "workspace:*",
+    "@hookform/resolvers": "5.2.2",
+    "@tailwindcss/postcss": "4.1.18",
+    "clsx": "2.1.1",
+    "next": "16.2.10",
+    "nodemailer": "7.0.12",
+    "posthog-js": "1.405.2",
+    "postgres": "3.4.8",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "react-hook-form": "7.71.1",
+    "server-only": "0.0.1",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.11.1",
+    "@playwright/test": "1.58.2",
+    "@testing-library/react": "16.3.2",
+    "@types/node": "24.10.4",
+    "@types/nodemailer": "7.0.10",
+    "@types/react": "19.2.10",
+    "@types/react-dom": "19.2.3",
+    "eslint": "9.39.2",
+    "eslint-config-next": "16.2.10",
+    "jsdom": "27.4.0",
+    "tailwindcss": "4.1.18",
+    "typescript": "6.0.3",
+    "vitest": "4.0.18"
+  }
+}

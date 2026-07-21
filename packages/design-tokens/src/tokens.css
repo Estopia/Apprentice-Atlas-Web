@@ -1,0 +1,32 @@
+:root {
+  --paper: #f7f5ee;
+  --paper-deep: #eee9dc;
+  --surface: #fffdf7;
+  --atlas-ink: #081f4d;
+  --atlas-blue: #155eef;
+  --atlas-blue-dark: #1048b8;
+  --map-blue: #dde8ff;
+  --coral: #ff6b57;
+  --coral-ink: #a83228;
+  --lime: #9ed45a;
+  --line: color-mix(in srgb, var(--atlas-ink) 18%, transparent);
+  --muted: #52617b;
+  --success: #35754a;
+  --error: #b42318;
+  --font-editorial: var(--font-newsreader), Georgia, serif;
+  --font-sans: var(--font-spline-sans), Arial, sans-serif;
+  --radius-sm: 0.35rem;
+  --radius-md: 0.8rem;
+  --radius-lg: 1.6rem;
+  --shadow-lift: 0 1.25rem 4rem rgba(8, 31, 77, 0.12);
+  --content-max: 82rem;
+  --reading-max: 46rem;
+  --section-space: clamp(4.5rem, 9vw, 9rem);
+  --gutter: clamp(1.1rem, 3vw, 2.5rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+}

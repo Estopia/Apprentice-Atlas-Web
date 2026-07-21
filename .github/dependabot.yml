@@ -1,0 +1,17 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule: { interval: weekly }
+    groups:
+      next-payload:
+        patterns: [next, payload, '@payloadcms/*', react, react-dom]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule: { interval: monthly }
+  - package-ecosystem: docker
+    directory: /apps/site
+    schedule: { interval: monthly }
+  - package-ecosystem: docker
+    directory: /apps/cms
+    schedule: { interval: monthly }

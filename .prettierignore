@@ -1,0 +1,7 @@
+node_modules
+.next
+dist
+coverage
+pnpm-lock.yaml
+apps/cms/src/payload-types.ts
+apps/*/next-env.d.ts
