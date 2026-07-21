@@ -12,4 +12,3 @@ test-results/
 .DS_Store
 *.log
 apps/cms/media/
-apps/cms/src/payload-types.ts
