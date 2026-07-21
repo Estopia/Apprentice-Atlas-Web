@@ -41,7 +41,6 @@ services:
   cms:
     image: ${CMS_IMAGE:-ghcr.io/estopia/apprentice-atlas-web-cms:local}
     pull_policy: never
-    init: true
     restart: unless-stopped
     environment:
       NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://apprenticeatlas.com}
