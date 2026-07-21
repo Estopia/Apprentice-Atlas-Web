@@ -2,6 +2,7 @@ name: apprentice-atlas-web
 services:
   site:
     image: ${SITE_IMAGE:-ghcr.io/estopia/apprentice-atlas-web-site:local}
+    pull_policy: build
     build:
       context: .
       dockerfile: apps/site/Dockerfile
@@ -43,6 +44,7 @@ services:
 
   cms:
     image: ${CMS_IMAGE:-ghcr.io/estopia/apprentice-atlas-web-cms:local}
+    pull_policy: build
     build:
       context: .
       dockerfile: apps/cms/Dockerfile
