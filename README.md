@@ -24,6 +24,11 @@ The public site is available at `http://localhost:3000`; Payload runs at
 `http://localhost:3001/admin`. The public site contains a complete typed content
 fallback, so its pages remain usable while the CMS is unavailable.
 
+After migrations and the first admin account, run `pnpm --filter
+@apprentice-atlas/cms seed` to upsert all 56 German/British-English launch
+documents, their governance metadata, taxonomies and first-party social image.
+Production seeding additionally requires `ALLOW_PRODUCTION_SEED=true`.
+
 ## Quality checks
 
 Run `pnpm lint`, `pnpm typecheck`, `pnpm test` and `pnpm test:e2e` before release.
