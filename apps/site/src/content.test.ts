@@ -80,4 +80,36 @@ describe('launch content', () => {
       expect(item.slug.en).not.toBe('');
     }
   });
+  it('describes the real product journey instead of leading with internal limitations', () => {
+    const productPages = ['product', 'how-it-works', 'app', 'product-ai'].map((key) => {
+      const item = staticPages.find((page) => page.key === key);
+      expect(item, `missing ${key}`).toBeDefined();
+      return item!;
+    });
+    const copy = (locale: 'de' | 'en') =>
+      productPages
+        .flatMap((item) => [
+          item.title[locale],
+          item.description[locale],
+          item.intro[locale],
+          ...item.sections.flatMap((section) => [
+            section.title[locale],
+            section.body[locale],
+            ...(section.points?.[locale] ?? []),
+          ]),
+        ])
+        .join(' ')
+        .toLocaleLowerCase(locale);
+
+    const de = copy('de');
+    for (const term of ['ausbildungsstellen', 'favoriten', 'bewerbung', 'interview']) {
+      expect(de, `German product copy misses ${term}`).toContain(term);
+    }
+    const en = copy('en');
+    for (const term of ['opportunities', 'favourites', 'application', 'interview']) {
+      expect(en, `English product copy misses ${term}`).toContain(term);
+    }
+    expect(de).not.toContain('was das produkt bewusst nicht verspricht');
+    expect(en).not.toContain('what the product deliberately does not promise');
+  });
 });

@@ -3,7 +3,11 @@ import { expect, test } from '@playwright/test';
 
 test('German home communicates the product and routes to pilot', async ({ page }) => {
   await page.goto('/de');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('wirklich zu dir passt');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('zu deinem Leben passt');
+  await expect(page.getByText('Offizielle Ausbildungsstellen', { exact: true })).toBeVisible();
+  await expect(page.getByText('Favoriten & Bewerbungen im Blick', { exact: true })).toBeVisible();
+  await expect(page.getByText('Deutschland + UK', { exact: true })).toHaveCount(0);
+  await expect(page.getByText('Deutsch + Englisch', { exact: true })).toHaveCount(0);
   await expect(page.getByRole('link', { name: 'Pilotpartner werden' }).first()).toBeVisible();
   await page.waitForTimeout(1200);
   const results = await new AxeBuilder({ page }).exclude('.cf-turnstile').analyze();

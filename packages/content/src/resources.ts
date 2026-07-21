@@ -1246,12 +1246,12 @@ export const resources: Resource[] = [
       en: 'From hackathon to responsible product',
     },
     description: {
-      de: 'Warum aus einem schnellen Prototyp ein langsamer geprüfter Dienst werden muss.',
-      en: 'Why a fast prototype must become a carefully reviewed service.',
+      de: 'Wie aus dem Build-Week-Prototyp eine getestete App und eine dauerhaft betreibbare Plattform wurde.',
+      en: 'How the Build Week prototype became a tested app and a platform designed for lasting operation.',
     },
     overview: {
-      de: 'Der Hackathon bewies, dass die Idee verständlich und technisch möglich ist. Ein öffentliches Produkt braucht zusätzlich verlässliche Inhalte, Schutzkonzepte, Barrierefreiheit, Betrieb, Feedbackwege und klare Grenzen.',
-      en: 'The hackathon showed that the idea was understandable and technically possible. A public product also needs reliable content, safeguarding, accessibility, operations, feedback routes and clear boundaries.',
+      de: 'Aus der ersten Idee entstand eine funktionsfähige TestFlight-App mit offiziellen Stellen, Kartensuche, GPT-5.6-Unterstützung, Favoriten und Bewerbungstracking. Der nächste Schritt ergänzt redaktionelle Inhalte, Pilotbetrieb und dauerhafte Qualitätsprozesse.',
+      en: 'The first idea became a working TestFlight app with official opportunities, map discovery, GPT-5.6 support, favourites and application tracking. The next stage adds editorial content, pilots and durable quality processes.',
     },
     actions: {
       de: [

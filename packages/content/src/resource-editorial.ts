@@ -1331,11 +1331,11 @@ export const editorialByResource: Record<string, ResourceEditorial> = {
         {
           de: [
             'Ein Hackathon optimiert auf Lerngeschwindigkeit und eine verständliche Demonstration. Ein öffentlicher Dienst muss dagegen mit unvollständigen Daten, Ausfällen, Korrekturen, Missbrauch, Barrierefreiheit und unterschiedlichen Schutzbedürfnissen umgehen. Deshalb trennen wir Mobile-App, Marketingplattform und CMS, halten Formulardaten serverseitig und veröffentlichen Inhalte erst nach Quellen- und Reviewfeldern.',
-            'Funktionsumfang ist kein Beweis für Reife. Reife zeigt sich auch an bewusst nicht gebauten Dingen: keine Live-Jobsuche ohne belastbare Datenpipeline, kein öffentliches Nutzerkonto ohne klaren Bedarf, keine erfundenen Wirkungszahlen und keine AI-Entscheidung über Lebenswege. Diese Grenzen werden erst nach Pilotbelegen neu bewertet.',
+            'Produktreife zeigt sich heute in der belastbaren Kette hinter den Funktionen: Live-Stellen kommen über serverseitige Adapter aus offiziellen Quellen, persönliche Favoriten und Bewerbungen sind durch Authentifizierung und Row-Level Security geschützt, und AI-Antworten werden gegen strukturierte Schemas sowie die konkrete Ausschreibung geprüft.',
           ],
           en: [
             'A hackathon optimises for learning speed and a clear demonstration. A public service must handle incomplete data, outages, corrections, abuse, accessibility and different safeguarding needs. We therefore separate the mobile app, marketing platform and CMS, keep form data server-side and require source and review fields before publishing content.',
-            'Feature volume is not evidence of maturity. Maturity is also visible in what we deliberately do not build: no live vacancy search without a reliable data pipeline, no public user account without a clear need, no invented impact figures and no AI decision about a life route. Pilot evidence, not excitement, will determine whether these boundaries move.',
+            'Product maturity now shows in the chain behind each feature: live vacancies arrive through server-side adapters from official sources, personal favourites and applications are protected by authentication and row-level security, and AI responses are checked against structured schemas and the specific advert.',
           ],
         },
       ),

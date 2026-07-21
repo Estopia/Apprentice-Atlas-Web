@@ -27,37 +27,37 @@ export const staticPages: StaticPage[] = [
     slug: { de: 'produkt', en: 'product' },
     eyebrow: { de: 'Der Atlas für den nächsten Schritt', en: 'An atlas for the next step' },
     title: {
-      de: 'Berufsorientierung, die aus Unsicherheit Bewegung macht.',
-      en: 'Careers guidance that turns uncertainty into movement.',
+      de: 'Von der ersten Suche bis zur vorbereiteten Bewerbung.',
+      en: 'From first search to a prepared application.',
     },
     description: {
       de: 'Apprentice Atlas verbindet verständliche Informationen, echte Tätigkeiten und sichere AI-Unterstützung.',
       en: 'Apprentice Atlas connects clear information, real activities and careful AI support.',
     },
     intro: {
-      de: 'Jugendliche brauchen nicht noch mehr Listen. Sie brauchen einen Weg, Interessen in überprüfbare Optionen zu übersetzen – mit Quellen, Kontext und einem machbaren nächsten Schritt.',
-      en: 'Young people do not need another list. They need a way to turn interests into testable options, with sources, context and one achievable next step.',
+      de: 'Apprentice Atlas verbindet offizielle Ausbildungsstellen, verständliche AI-Erklärungen, persönliche Favoriten und Bewerbungsplanung zu einem klaren Weg durch die Berufsorientierung.',
+      en: 'Apprentice Atlas brings official apprenticeship opportunities, clear AI explanations, personal shortlists and application planning into one coherent careers journey.',
     },
     pillars: [
       {
         title: { de: 'Entdecken', en: 'Discover' },
         body: {
-          de: 'Berufsfelder über Tätigkeiten, Arbeitsumgebungen und Lernformen erkunden.',
-          en: 'Explore career fields through activities, environments and ways of learning.',
+          de: 'Offizielle Ausbildungsstellen in deiner Region auf Karte oder Liste finden.',
+          en: 'Find official apprenticeship opportunities in your area on a map or list.',
         },
       },
       {
         title: { de: 'Verstehen', en: 'Understand' },
         body: {
-          de: 'Ausbildungswege in Deutschland und im Vereinigten Königreich verständlich vergleichen.',
-          en: 'Understand apprenticeship routes in Germany and the United Kingdom.',
+          de: 'Aufgaben, Anforderungen, Vergütung und Ausbildungsalltag in klarer Sprache verstehen.',
+          en: 'Understand duties, requirements, pay and day-to-day training in clear language.',
         },
       },
       {
         title: { de: 'Handeln', en: 'Act' },
         body: {
-          de: 'Aus einer Idee werden Fragen, Gespräche, Besuche und gute Bewerbungen.',
-          en: 'Turn an idea into questions, conversations, visits and stronger applications.',
+          de: 'Favoriten speichern, Bewerbungen verfolgen und Interviews passend zur Stelle vorbereiten.',
+          en: 'Save favourites, track applications and prepare for interviews around each vacancy.',
         },
       },
     ],
@@ -68,44 +68,44 @@ export const staticPages: StaticPage[] = [
     slug: { de: 'produkt/so-funktioniert-es', en: 'product/how-it-works' },
     eyebrow: { de: 'Vier Kapitel', en: 'Four chapters' },
     title: {
-      de: 'Von „keine Ahnung“ zu einem nächsten Schritt.',
-      en: 'From “no idea” to a useful next step.',
+      de: 'Ein klarer Weg von der Suche bis zur Bewerbung.',
+      en: 'A clear route from search to application.',
     },
     description: {
-      de: 'Ein nachvollziehbarer Orientierungsprozess statt einer Blackbox-Empfehlung.',
-      en: 'A transparent exploration process, not a black-box recommendation.',
+      de: 'Vier verständliche Schritte, die aus Interesse einen konkreten Bewerbungsplan machen.',
+      en: 'Four clear steps that turn an interest into a practical application plan.',
     },
     intro: {
-      de: 'Der Atlas beginnt bei dir, erweitert den Blick, prüft Optionen und hilft beim Handeln. Jede Empfehlung bleibt erklärbar und veränderbar.',
-      en: 'The Atlas starts with you, widens the view, tests options and helps you act. Every suggestion stays explainable and revisable.',
+      de: 'Du entdeckst Ausbildungsstellen, verstehst den Alltag dahinter, baust eine persönliche Merkliste und bereitest den nächsten Bewerbungsschritt direkt in der App vor.',
+      en: 'Discover opportunities, understand the daily reality, build a personal shortlist and prepare the next application step directly in the app.',
     },
     pillars: [
       {
-        title: { de: '01 Signale sammeln', en: '01 Gather signals' },
+        title: { de: '01 Chancen finden', en: '01 Find opportunities' },
         body: {
-          de: 'Interessen, Erfahrungen, Stärken und Grenzen als konkrete Situationen erfassen.',
-          en: 'Capture interests, experiences, strengths and constraints as concrete situations.',
+          de: 'Mit Ort, Interessen und Filtern offizielle Ausbildungsstellen auf Karte oder Liste entdecken.',
+          en: 'Use location, interests and filters to discover official opportunities on a map or list.',
         },
       },
       {
-        title: { de: '02 Wege kartieren', en: '02 Map routes' },
+        title: { de: '02 Stellen verstehen', en: '02 Understand vacancies' },
         body: {
-          de: 'Passende Tätigkeiten und Ausbildungswege nebeneinander ansehen.',
-          en: 'See relevant activities and training routes side by side.',
+          de: 'Dichte Ausschreibungstexte, Anforderungen und Arbeitsalltag verständlich aufbereiten.',
+          en: 'Turn dense adverts, requirements and working life into clear information.',
         },
       },
       {
-        title: { de: '03 Realität prüfen', en: '03 Check reality' },
+        title: { de: '03 Favoriten vergleichen', en: '03 Compare favourites' },
         body: {
-          de: 'Quellen, Anforderungen, Alltag und offene Fragen sichtbar machen.',
-          en: 'Surface sources, requirements, daily reality and unanswered questions.',
+          de: 'Interessante Stellen speichern und Unterschiede bei Aufgaben, Ort und Anforderungen prüfen.',
+          en: 'Save interesting opportunities and compare duties, location and requirements.',
         },
       },
       {
-        title: { de: '04 Losgehen', en: '04 Take action' },
+        title: { de: '04 Bewerbung vorbereiten', en: '04 Prepare to apply' },
         body: {
-          de: 'Einen Besuch, ein Gespräch, ein Praktikum oder eine Bewerbung vorbereiten.',
-          en: 'Prepare a visit, conversation, placement or application.',
+          de: 'Fristen verfolgen, Interviewfragen üben und den Fortschritt bis zur offiziellen Bewerbung planen.',
+          en: 'Track deadlines, practise interview questions and plan progress through to the official application.',
         },
       },
     ],
@@ -121,29 +121,29 @@ export const staticPages: StaticPage[] = [
       en: 'Discover, save, compare and plan what comes next.',
     },
     intro: {
-      de: 'Die App ist für kurze, wiederkehrende Orientierungsmomente gebaut. Sie ersetzt kein Beratungsgespräch, macht es aber konkreter und besser vorbereitet.',
-      en: 'The app is built for short, repeatable moments of exploration. It does not replace careers conversations; it makes them more concrete and better prepared.',
+      de: 'Die App begleitet dich von der Suche auf der Karte über verständliche Stelleninfos und Favoriten bis zu Bewerbung, Interview und Fristen.',
+      en: 'The app supports you from map-based discovery and clear vacancy information through to shortlists, applications, interviews and deadlines.',
     },
     pillars: [
       {
-        title: { de: 'Persönliche Karte', en: 'A personal map' },
+        title: { de: 'In deiner Nähe entdecken', en: 'Discover nearby' },
         body: {
-          de: 'Gespeicherte Berufsfelder, Wege und Fragen an einem Ort.',
-          en: 'Saved fields, routes and questions in one place.',
+          de: 'Offizielle Ausbildungsstellen auf der Karte oder in einer durchsuchbaren Liste finden.',
+          en: 'Find official apprenticeship opportunities on a map or searchable list.',
         },
       },
       {
-        title: { de: 'Quellen sichtbar', en: 'Visible sources' },
+        title: { de: 'Stellen klar verstehen', en: 'Understand each vacancy' },
         body: {
-          de: 'Wichtige Aussagen führen zu ihrer offiziellen Grundlage.',
-          en: 'Important claims link back to their official basis.',
+          de: 'AI erklärt Ausschreibungen, beantwortet konkrete Fragen und zeigt die Originalquelle.',
+          en: 'AI explains adverts, answers specific questions and keeps the original source visible.',
         },
       },
       {
-        title: { de: 'Standort optional', en: 'Location is optional' },
+        title: { de: 'Bewerbungen organisieren', en: 'Organise applications' },
         body: {
-          de: 'Regionale Relevanz ohne dauerhafte Standortfreigabe.',
-          en: 'Regional relevance without requiring persistent location access.',
+          de: 'Favoriten, Status, Interviews, Fristen, Kalender und Export an einem Ort verwalten.',
+          en: 'Manage favourites, status, interviews, deadlines, calendar and exports in one place.',
         },
       },
     ],
@@ -158,33 +158,33 @@ export const staticPages: StaticPage[] = [
       en: 'AI explains and structures. You decide.',
     },
     description: {
-      de: 'Keine automatische Berufswahl, kein Persönlichkeitsurteil, keine erfundene Gewissheit.',
-      en: 'No automated career choice, personality judgement or invented certainty.',
+      de: 'Klartext zur Stelle, konkrete Antworten und persönliche Vorbereitung mit sichtbarer Quelle.',
+      en: 'Plain-language vacancy guidance, specific answers and personal preparation with visible sources.',
     },
     intro: {
-      de: 'Unsere AI hilft, unübersichtliche Informationen zu ordnen und bessere Fragen zu formulieren. Sie wird als Assistenz gestaltet, nicht als Autorität.',
-      en: 'Our AI helps organise complex information and formulate better questions. It is designed as an assistant, not an authority.',
+      de: 'Unsere AI macht Ausschreibungen verständlicher, beantwortet Fragen zur konkreten Stelle und erstellt passende Interviewübungen sowie eine ehrliche Skill-Gap-Übersicht.',
+      en: 'Our AI makes adverts easier to understand, answers questions about the specific vacancy and creates relevant interview practice and an honest skill-gap view.',
     },
     pillars: [
       {
-        title: { de: 'Kann', en: 'Can' },
+        title: { de: 'Klar erklären', en: 'Explain clearly' },
         body: {
-          de: 'Begriffe erklären, Optionen gegenüberstellen und nächste Recherchefragen vorschlagen.',
-          en: 'Explain terms, compare options and suggest further research questions.',
+          de: 'Aufgaben, Anforderungen und Arbeitgebertexte in verständliche Sprache übersetzen.',
+          en: 'Turn duties, requirements and employer language into clear explanations.',
         },
       },
       {
-        title: { de: 'Kann nicht', en: 'Cannot' },
+        title: { de: 'Konkrete Fragen beantworten', en: 'Answer specific questions' },
         body: {
-          de: 'Eignung feststellen, eine Stelle garantieren oder menschliche Beratung ersetzen.',
-          en: 'Determine suitability, guarantee a role or replace human guidance.',
+          de: 'Fragen zu Alltag, Voraussetzungen und Bewerbung direkt auf Basis der Ausschreibung beantworten.',
+          en: 'Answer questions about daily work, requirements and applying directly from the advert.',
         },
       },
       {
-        title: { de: 'Kontrolle', en: 'Control' },
+        title: { de: 'Persönlich vorbereiten', en: 'Prepare personally' },
         body: {
-          de: 'Quellen, Feedbackwege und klare Eskalation bei Schutzthemen.',
-          en: 'Sources, feedback routes and clear escalation for safeguarding concerns.',
+          de: 'Stellenspezifische Interviewfragen, Antworttipps und nächste Lernschritte erstellen.',
+          en: 'Create vacancy-specific interview questions, answer tips and practical learning steps.',
         },
       },
     ],
@@ -236,37 +236,37 @@ export const staticPages: StaticPage[] = [
     slug: { de: 'fuer/jugendliche', en: 'for/young-people' },
     eyebrow: { de: 'Für Jugendliche', en: 'For young people' },
     title: {
-      de: 'Du musst noch nicht wissen, was du werden willst.',
-      en: 'You do not need to know what you want to become.',
+      de: 'Entdecke, welcher Ausbildungsweg zu deinem Alltag passt.',
+      en: 'Discover which apprenticeship route fits your life.',
     },
     description: {
       de: 'Finde heraus, welche Tätigkeiten und Wege einen genaueren Blick verdienen.',
       en: 'Find out which activities and routes deserve a closer look.',
     },
     intro: {
-      de: 'Orientierung ist kein Test, den man bestehen muss. Beginne mit Neugier, prüfe echte Informationen und ändere deine Meinung, wenn du Neues lernst.',
-      en: 'Career exploration is not a test to pass. Start with curiosity, check real information and change your mind as you learn.',
+      de: 'Starte mit deinen Interessen, entdecke echte Stellen in deiner Nähe und finde Schritt für Schritt heraus, welche Aufgaben, Teams und Lernwege dich ansprechen.',
+      en: 'Start with your interests, discover real opportunities nearby and find out which tasks, teams and ways of learning appeal to you.',
     },
     pillars: [
       {
-        title: { de: 'Ohne Schubladen', en: 'No boxes' },
+        title: { de: 'Chancen entdecken', en: 'Discover opportunities' },
         body: {
-          de: 'Interessen werden zu offenen Spuren, nicht zu einem endgültigen Etikett.',
-          en: 'Interests become open trails, not permanent labels.',
+          de: 'Finde offizielle Ausbildungsstellen passend zu Ort, Interessen und Arbeitsweise.',
+          en: 'Find official apprenticeship opportunities by location, interests and ways of working.',
         },
       },
       {
-        title: { de: 'Ohne Verkaufsdruck', en: 'No sales pressure' },
+        title: { de: 'Alltag verstehen', en: 'Understand daily work' },
         body: {
-          de: 'Wir verkaufen keine Stellen und ranken Betriebe nicht nach Bezahlung.',
-          en: 'We do not sell vacancies or rank employers by payment.',
+          de: 'Verstehe Aufgaben, Anforderungen, Vergütung und Lernform in klarer Sprache.',
+          en: 'Understand duties, requirements, pay and learning in clear language.',
         },
       },
       {
-        title: { de: 'Mit echtem nächsten Schritt', en: 'A real next step' },
+        title: { de: 'Bewerbung starten', en: 'Start applying' },
         body: {
-          de: 'Jede Erkundung soll zu einer Frage oder Handlung führen, die du überprüfen kannst.',
-          en: 'Every exploration should lead to a question or action you can test.',
+          de: 'Speichere Favoriten, übe Interviews und behalte Fristen und Fortschritt im Blick.',
+          en: 'Save favourites, practise interviews and keep deadlines and progress in view.',
         },
       },
     ],
@@ -297,7 +297,7 @@ export const staticPages: StaticPage[] = [
         },
       },
       {
-        title: { de: 'Keine Blackbox', en: 'No black box' },
+        title: { de: 'Nachvollziehbare Orientierung', en: 'Traceable guidance' },
         body: {
           de: 'Empfehlungen zeigen Begründung, Unsicherheit und Alternativen.',
           en: 'Suggestions show reasoning, uncertainty and alternatives.',
@@ -318,16 +318,16 @@ export const staticPages: StaticPage[] = [
     slug: { de: 'fuer/eltern', en: 'for/parents-carers' },
     eyebrow: { de: 'Für Eltern', en: 'For parents and carers' },
     title: {
-      de: 'Orientierung geben, ohne den Weg vorzugeben.',
-      en: 'Offer direction without choosing the route.',
+      de: 'Ausbildungswege gemeinsam verstehen.',
+      en: 'Understand apprenticeship routes together.',
     },
     description: {
       de: 'Verständliche Systeminformationen und bessere Fragen für ruhige Gespräche.',
       en: 'Clear system information and better questions for calmer conversations.',
     },
     intro: {
-      de: 'Sie kennen Ihr Kind, aber nicht jede neue Berufsbezeichnung oder Ausbildungsregel. Wir bringen die Fakten in eine Form, die gemeinsames Prüfen möglich macht.',
-      en: 'You know your young person, but not every new job title or apprenticeship rule. We make the facts easier to examine together.',
+      de: 'Apprentice Atlas bereitet Stellen, Ausbildungsmodelle, Vergütung und Entwicklungsmöglichkeiten so auf, dass Familien konkrete Optionen gemeinsam besprechen können.',
+      en: 'Apprentice Atlas presents vacancies, training models, pay and progression so families can discuss concrete options together.',
     },
     pillars: [
       {
@@ -359,16 +359,16 @@ export const staticPages: StaticPage[] = [
     slug: { de: 'pilotpartner', en: 'pilot-partners' },
     eyebrow: { de: 'Pilotprogramm 2026/27', en: '2026/27 pilot programme' },
     title: {
-      de: 'Apprentice Atlas gemeinsam verantwortungsvoll erproben.',
-      en: 'Test Apprentice Atlas responsibly, together.',
+      de: 'Berufsorientierung mit Apprentice Atlas erproben.',
+      en: 'Pilot careers exploration with Apprentice Atlas.',
     },
     description: {
       de: 'Für Schulen, Careers Services, Ausbildungsnetzwerke und gemeinnützige Partner in Deutschland und dem UK.',
       en: 'For schools, careers services, apprenticeship networks and non-profit partners in Germany and the UK.',
     },
     intro: {
-      de: 'Wir suchen Partner, die nicht nur Zugang geben, sondern Lernfragen mitgestalten. Ein Pilot beginnt klein, schützt Teilnehmende und endet mit einer ehrlichen Entscheidung über den nächsten Schritt.',
-      en: 'We are looking for partners who help shape the learning questions, not only provide access. A pilot starts small, protects participants and ends with an honest decision about what comes next.',
+      de: 'Gemeinsam erproben wir, wie offizielle Stellen, verständliche AI-Unterstützung und Bewerbungsplanung bestehende Beratung und Unterricht sinnvoll ergänzen.',
+      en: 'Together we test how official opportunities, clear AI support and application planning can strengthen existing guidance and classroom practice.',
     },
     pillars: [
       {
@@ -404,8 +404,8 @@ export const staticPages: StaticPage[] = [
       en: 'As little data as possible. As much protection as needed.',
     },
     description: {
-      de: 'Keine öffentlichen Profile, keine Werbetracker und keine sensiblen Daten für Berufsvorschläge.',
-      en: 'No public profiles, advertising trackers or sensitive data required for career suggestions.',
+      de: 'Deine Orientierung bleibt privat – mit optionalem Standort, optionalen Analytics und geschützten persönlichen Angaben.',
+      en: 'Your exploration stays private, with optional location, optional analytics and protected personal information.',
     },
     intro: {
       de: 'Datensparsamkeit beginnt bei der Produktentscheidung. Standort ist optional; Analytics bleibt aus, bis ausdrücklich zugestimmt wird; Formulardaten werden getrennt und zeitlich begrenzt verarbeitet.',
@@ -420,10 +420,10 @@ export const staticPages: StaticPage[] = [
         },
       },
       {
-        title: { de: 'Keine Datenwerbung', en: 'No data advertising' },
+        title: { de: 'Daten nur für den gewählten Zweck', en: 'Data used for its stated purpose' },
         body: {
-          de: 'Personenbezogene Daten werden nicht verkauft oder für personalisierte Anzeigen genutzt.',
-          en: 'Personal data is not sold or used for personalised advertising.',
+          de: 'Persönliche Angaben dienen deiner Nutzung von Apprentice Atlas und werden weder verkauft noch für personalisierte Anzeigen verwendet.',
+          en: 'Personal information supports your use of Apprentice Atlas and is neither sold nor used for personalised advertising.',
         },
       },
       {
@@ -454,17 +454,20 @@ export const staticPages: StaticPage[] = [
     },
     pillars: [
       {
-        title: { de: 'Keine Eignungsdiagnose', en: 'No suitability diagnosis' },
+        title: { de: 'Relevante Eingaben', en: 'Relevant inputs' },
         body: {
-          de: 'Wir leiten aus wenigen Antworten keine feste Persönlichkeit oder Berufseignung ab.',
-          en: 'We do not infer a fixed personality or career suitability from a few answers.',
+          de: 'Vorschläge beziehen sich auf konkrete Interessen und Fragen, statt aus wenigen Antworten eine feste Persönlichkeit abzuleiten.',
+          en: 'Suggestions respond to specific interests and questions rather than inferring a fixed personality from a few answers.',
         },
       },
       {
-        title: { de: 'Sensible Daten vermeiden', en: 'Avoid sensitive data' },
+        title: {
+          de: 'Sensible Merkmale bleiben außen vor',
+          en: 'Sensitive characteristics stay out',
+        },
         body: {
-          de: 'Gesundheit, Herkunft, Religion oder ähnliche Merkmale sind keine Empfehlungseingabe.',
-          en: 'Health, ethnicity, religion and similar characteristics are not recommendation inputs.',
+          de: 'Berufsvorschläge konzentrieren sich auf Ziele und Interessen – nicht auf Gesundheit, Herkunft, Religion oder ähnliche Merkmale.',
+          en: 'Career suggestions focus on goals and interests, not health, ethnicity, religion or similar characteristics.',
         },
       },
       {
@@ -610,8 +613,8 @@ export const staticPages: StaticPage[] = [
       en: 'Apprentice Atlas sits at the intersection of product development, careers guidance and responsible AI.',
     },
     intro: {
-      de: 'Wir bauen keinen Automaten, der Jugendlichen sagt, wer sie sein sollen. Wir bauen einen Atlas, der Informationen ordnet, Fragen öffnet und professionelle Beratung stärkt.',
-      en: 'We are not building a machine that tells young people who to be. We are building an atlas that organises information, opens questions and strengthens professional guidance.',
+      de: 'Wir bauen einen Atlas, der offizielle Chancen sichtbar macht, komplizierte Informationen verständlich erklärt und Jugendliche vom ersten Interesse bis zur vorbereiteten Bewerbung begleitet.',
+      en: 'We are building an atlas that makes official opportunities visible, explains complex information clearly and supports young people from first interest to a prepared application.',
     },
     pillars: [
       {
@@ -643,37 +646,37 @@ export const staticPages: StaticPage[] = [
     slug: { de: 'ueber-uns/geschichte', en: 'about/story' },
     eyebrow: { de: 'Unsere Geschichte', en: 'Our story' },
     title: {
-      de: 'Ein Hackathon war der Anfang, nicht das Ziel.',
-      en: 'A hackathon was the beginning, not the destination.',
+      de: 'Aus einer Hackathon-Idee wurde eine echte App.',
+      en: 'A hackathon idea became a real app.',
     },
     description: {
       de: 'Aus einem schnellen Prototyp wird eine verlässliche Plattform für echte Entscheidungen.',
       en: 'A fast prototype is becoming a dependable platform for real decisions.',
     },
     intro: {
-      de: 'Die erste Version zeigte, wie verständliche Karten, offizielle Daten und AI-Unterstützung zusammenspielen können. Der nächste Schritt ist weniger spektakulär und wichtiger: prüfen, absichern, zuhören und dauerhaft betreiben.',
-      en: 'The first version showed how clear maps, official data and AI support could work together. The next step is less flashy and more important: test, safeguard, listen and operate reliably.',
+      de: 'Heute verbindet Apprentice Atlas offizielle Ausbildungsstellen, Kartensuche, verständliche GPT-5.6-Erklärungen, Favoriten, Bewerbungstracking und Interviewvorbereitung in einer zweisprachigen iPhone-App. Jetzt entsteht daraus eine dauerhaft betreibbare Plattform für Schulen, Beratung und Jugendliche.',
+      en: 'Today Apprentice Atlas combines official apprenticeships, map discovery, clear GPT-5.6 explanations, favourites, application tracking and interview preparation in a bilingual iPhone app. We are now turning it into a sustainable platform for schools, advisers and young people.',
     },
     pillars: [
       {
-        title: { de: 'Prototyp', en: 'Prototype' },
+        title: { de: 'Build Week', en: 'Build Week' },
         body: {
-          de: 'Eine ambitionierte Produktskizze machte die Idee erlebbar.',
-          en: 'An ambitious product sketch made the idea tangible.',
+          de: 'Die erste Version machte ortsbasierte Ausbildungssuche und verständliche AI-Unterstützung erlebbar.',
+          en: 'The first version made location-based apprenticeship discovery and clear AI support tangible.',
         },
       },
       {
-        title: { de: 'Produkt', en: 'Product' },
+        title: { de: 'TestFlight-App', en: 'TestFlight app' },
         body: {
-          de: 'Inhalte, Datenschutz, Barrierefreiheit und Betrieb werden jetzt systematisch aufgebaut.',
-          en: 'Content, privacy, accessibility and operations are now being built systematically.',
+          de: 'Die App verbindet Suche, Klartext, AI-Fragen, Favoriten und Bewerbungsplanung in einem vollständigen mobilen Ablauf.',
+          en: 'The app connects discovery, plain-language guidance, AI questions, favourites and application planning in one complete mobile journey.',
         },
       },
       {
-        title: { de: 'Partnerschaft', en: 'Partnership' },
+        title: { de: 'Nächste Etappe', en: 'Next stage' },
         body: {
-          de: 'Schulen und Beratung helfen zu entscheiden, was wirklich nützlich und verantwortbar ist.',
-          en: 'Schools and advisers help determine what is genuinely useful and responsible.',
+          de: 'Mit Schulen und Beratung erproben wir, wie Apprentice Atlas bestehende Berufsorientierung am besten ergänzt.',
+          en: 'With schools and advisers, we are testing how Apprentice Atlas can best strengthen existing careers guidance.',
         },
       },
     ],
@@ -692,8 +695,8 @@ export const staticPages: StaticPage[] = [
       en: 'Company boilerplate, contact, naming and available brand assets.',
     },
     intro: {
-      de: 'Wir stellen belegbare Produktinformationen und freigegebene Bildmaterialien bereit. Bitte keine Pilotpartner, Nutzerzahlen oder Wirkungsbehauptungen ohne schriftliche Bestätigung nennen.',
-      en: 'We provide verified product information and approved imagery. Please do not name pilot partners, user numbers or impact claims without written confirmation.',
+      de: 'Hier finden Medien und Partner ein geprüftes Kurzprofil, aktuelle Produktfakten, freigegebene Bilder und den direkten Kontakt für Rückfragen.',
+      en: 'Media and partners can find a verified boilerplate, current product facts, approved imagery and a direct contact for questions.',
     },
     pillars: [
       {

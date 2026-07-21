@@ -23,6 +23,33 @@ export function StaticPageView({ page, locale }: { page: StaticPage; locale: Loc
           : locale === 'de'
             ? '/kontakt'
             : '/contact';
+  const ctaCopy = {
+    partner: {
+      de: {
+        heading: 'Interesse an einem Pilot mit Apprentice Atlas?',
+        label: 'Pilotprogramm ansehen',
+      },
+      en: { heading: 'Interested in piloting Apprentice Atlas?', label: 'Explore the pilot' },
+    },
+    app: {
+      de: { heading: 'Entdecke den vollständigen App-Ablauf.', label: 'App entdecken' },
+      en: { heading: 'Explore the complete app journey.', label: 'Discover the app' },
+    },
+    resources: {
+      de: {
+        heading: 'Finde den passenden Guide für deinen nächsten Schritt.',
+        label: 'Guides durchsuchen',
+      },
+      en: {
+        heading: 'Find the right guide for your next step.',
+        label: 'Browse the guides',
+      },
+    },
+    contact: {
+      de: { heading: 'Lass uns die nächste Etappe gemeinsam planen.', label: 'Kontakt aufnehmen' },
+      en: { heading: 'Let’s plan the next stage together.', label: 'Contact us' },
+    },
+  }[page.cta ?? 'contact'][locale];
   return (
     <>
       <article className="editorial-page">
@@ -76,10 +103,8 @@ export function StaticPageView({ page, locale }: { page: StaticPage; locale: Loc
           ))}
         </div>
         <div className="editorial-cta">
-          <p>{locale === 'de' ? 'Bereit für den nächsten Schritt?' : 'Ready for the next step?'}</p>
-          <ButtonLink href={localPath(locale, cta)}>
-            {locale === 'de' ? 'Route öffnen' : 'Open the route'}
-          </ButtonLink>
+          <p>{ctaCopy.heading}</p>
+          <ButtonLink href={localPath(locale, cta)}>{ctaCopy.label}</ButtonLink>
         </div>
       </article>
       {page.key === 'pilot' && (
