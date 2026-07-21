@@ -15,7 +15,7 @@
     "@apprentice-atlas/content": "workspace:*",
     "@apprentice-atlas/design-tokens": "workspace:*",
     "@apprentice-atlas/email": "workspace:*",
-    "@hookform/resolvers": "5.2.2",
+    "@hookform/resolvers": "5.4.0",
     "@tailwindcss/postcss": "4.1.18",
     "clsx": "2.1.1",
     "next": "16.2.10",
