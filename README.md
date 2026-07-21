@@ -16,13 +16,21 @@ advisers understand apprenticeships in Germany and the United Kingdom.
 ## Local development
 
 1. Install Node.js 24.18+ and pnpm 10.28.1.
-2. Copy `.env.example` to `.env.local` and provide secrets.
+2. For a custom local database, create `apps/cms/.env.local` and set
+   `DATABASE_URI`. Without that file, Payload uses the local PostgreSQL database
+   `apprentice_atlas` and your operating-system PostgreSQL user.
 3. Run `pnpm install`.
 4. Start both applications with `pnpm dev`.
 
 The public site is available at `http://localhost:3000`; Payload runs at
 `http://localhost:3001/admin`. The public site contains a complete typed content
 fallback, so its pages remain usable while the CMS is unavailable.
+
+For Portainer, deploy `compose.yaml` directly from the Git repository and add the
+values from `infra/portainer/stack.env.example` as stack environment variables.
+The stack builds both images from the checked-out commit, runs the checked-in
+Payload migrations and exposes `site:3000` and `cms:3001` only on the shared proxy
+network for Nginx Proxy Manager.
 
 After migrations and the first admin account, run `pnpm --filter
 @apprentice-atlas/cms seed` to upsert all 56 German/British-English launch

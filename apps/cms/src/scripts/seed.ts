@@ -10,16 +10,16 @@ const lexicalBody = (locale: Locale, sections: (typeof resources)[number]['secti
   root: {
     type: 'root',
     version: 1,
-    direction: locale === 'de' ? 'ltr' : 'ltr',
-    format: '',
+    direction: 'ltr' as const,
+    format: '' as const,
     indent: 0,
     children: sections.flatMap((section) => [
       {
         type: 'heading',
         tag: 'h2',
         version: 1,
-        direction: 'ltr',
-        format: '',
+        direction: 'ltr' as const,
+        format: '' as const,
         indent: 0,
         children: [
           {
@@ -36,8 +36,8 @@ const lexicalBody = (locale: Locale, sections: (typeof resources)[number]['secti
       ...section.paragraphs[locale].map((text) => ({
         type: 'paragraph',
         version: 1,
-        direction: 'ltr',
-        format: '',
+        direction: 'ltr' as const,
+        format: '' as const,
         indent: 0,
         textFormat: 0,
         textStyle: '',
@@ -48,8 +48,8 @@ const lexicalBody = (locale: Locale, sections: (typeof resources)[number]['secti
       ...(section.bullets?.[locale] ?? []).map((text) => ({
         type: 'paragraph',
         version: 1,
-        direction: 'ltr',
-        format: '',
+        direction: 'ltr' as const,
+        format: '' as const,
         indent: 0,
         textFormat: 0,
         textStyle: '',
@@ -107,8 +107,8 @@ async function seed() {
         await upsertTaxonomy('audiences', key, name),
       ]),
     ),
-  ) as Record<Audience, string | number>;
-  const countryIds: Record<Exclude<Country, 'both'>, string | number> = {
+  ) as Record<Audience, number>;
+  const countryIds: Record<Exclude<Country, 'both'>, number> = {
     de: await upsertTaxonomy('countries', 'de', 'Germany'),
     uk: await upsertTaxonomy('countries', 'uk', 'United Kingdom'),
   };

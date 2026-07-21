@@ -14,6 +14,7 @@ import { Pages, Articles, Guides, CareerFields } from './collections/Editorial';
 import { GlossaryTerms } from './collections/GlossaryTerms';
 import { Downloads } from './collections/Downloads';
 import { Redirects } from './collections/Redirects';
+import { migrations } from './migrations';
 import {
   Navigation,
   Footer,
@@ -55,10 +56,10 @@ export default buildConfig({
   globals: [Navigation, Footer, Contact, StoreTargets, SocialLinks, ConsentTexts, CallsToAction],
   db: postgresAdapter({
     pool: {
-      connectionString:
-        process.env.DATABASE_URI ?? 'postgres://postgres:postgres@127.0.0.1:5432/apprentice_atlas',
+      connectionString: process.env.DATABASE_URI ?? 'postgresql:///apprentice_atlas',
     },
     migrationDir: path.resolve(dirname, 'migrations'),
+    prodMigrations: migrations,
   }),
   editor: lexicalEditor(),
   email: process.env.SMTP_HOST
