@@ -39,7 +39,7 @@ jobs:
           cache-to: type=gha,mode=max,scope=${{ matrix.service }}
       - id: digest
         run: echo "${{ matrix.service }}=${{ steps.build.outputs.digest }}" >> "$GITHUB_OUTPUT"
-      - uses: anchore/scan-action@v6
+      - uses: anchore/scan-action@v7
         with:
           {
             image: 'ghcr.io/estopia/apprentice-atlas-web-${{ matrix.service }}@${{ steps.build.outputs.digest }}',
