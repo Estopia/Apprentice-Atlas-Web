@@ -15,7 +15,7 @@ advisers understand apprenticeships in Germany and the United Kingdom.
 
 ## Local development
 
-1. Install Node.js 22+ and pnpm 10.28.1.
+1. Install Node.js 24.18+ and pnpm 10.28.1.
 2. Copy `.env.example` to `.env.local` and provide secrets.
 3. Run `pnpm install`.
 4. Start both applications with `pnpm dev`.

@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.7
-FROM node:22.22.0-alpine AS base
+FROM node:24.18.0-alpine AS base
 ENV PNPM_HOME=/pnpm PATH=/pnpm:$PATH
 RUN corepack enable && corepack prepare pnpm@10.28.1 --activate
 WORKDIR /workspace
@@ -16,7 +16,7 @@ COPY packages/content packages/content
 ENV NEXT_TELEMETRY_DISABLED=1 PAYLOAD_SECRET=container-build-only DATABASE_URI=postgres://postgres:postgres@127.0.0.1:5432/apprentice_atlas
 RUN pnpm --filter @apprentice-atlas/cms build
 
-FROM node:22.22.0-alpine AS runner
+FROM node:24.18.0-alpine AS runner
 ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 PORT=3001 HOSTNAME=0.0.0.0
 RUN apk add --no-cache tini && addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 payload
 WORKDIR /app
