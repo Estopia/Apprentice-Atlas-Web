@@ -18,7 +18,11 @@ RUN pnpm --filter @apprentice-atlas/cms build
 
 FROM node:24.18.0-alpine AS runner
 ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 PORT=3001 HOSTNAME=0.0.0.0
-RUN apk add --no-cache tini && addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 payload
+RUN apk add --no-cache tini \
+  && rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack /opt/yarn-* \
+  && rm -f /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack /usr/local/bin/pnpm /usr/local/bin/pnpx /usr/local/bin/yarn /usr/local/bin/yarnpkg \
+  && addgroup --system --gid 1001 nodejs \
+  && adduser --system --uid 1001 payload
 WORKDIR /app
 COPY --from=build --chown=payload:nodejs /workspace/apps/cms/.next/standalone ./
 COPY --from=build --chown=payload:nodejs /workspace/apps/cms/.next/static ./apps/cms/.next/static

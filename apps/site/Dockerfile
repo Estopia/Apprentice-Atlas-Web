@@ -22,7 +22,10 @@ RUN pnpm --filter @apprentice-atlas/site build
 
 FROM node:24.18.0-alpine AS runner
 ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 PORT=3000 HOSTNAME=0.0.0.0
-RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
+RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack /opt/yarn-* \
+  && rm -f /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack /usr/local/bin/pnpm /usr/local/bin/pnpx /usr/local/bin/yarn /usr/local/bin/yarnpkg \
+  && addgroup --system --gid 1001 nodejs \
+  && adduser --system --uid 1001 nextjs
 WORKDIR /app
 COPY --from=build --chown=nextjs:nodejs /workspace/apps/site/.next/standalone ./
 COPY --from=build --chown=nextjs:nodejs /workspace/apps/site/.next/static ./apps/site/.next/static
