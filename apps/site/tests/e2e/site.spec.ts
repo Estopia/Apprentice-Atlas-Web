@@ -32,5 +32,13 @@ test('resource pages expose sources and reciprocal language metadata', async ({ 
 test('reduced motion keeps the route static', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/en');
-  await expect(page.locator('.route-path')).toHaveCSS('animation-duration', '1e-05s');
+  const durationMs = await page.locator('.route-path').evaluate((element) => {
+    const duration = getComputedStyle(element).animationDuration;
+    const value = Number.parseFloat(duration);
+
+    return duration.endsWith('ms') ? value : value * 1_000;
+  });
+
+  expect(durationMs).toBeLessThanOrEqual(0.01);
+  await expect(page.locator('.route-path')).toHaveCSS('animation-iteration-count', '1');
 });

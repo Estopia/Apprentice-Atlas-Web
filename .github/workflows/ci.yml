@@ -13,7 +13,7 @@ jobs:
       - uses: pnpm/action-setup@v4
         with: { version: 10.28.1 }
       - uses: actions/setup-node@v4
-        with: { node-version: 22, cache: pnpm }
+        with: { node-version: 24.18.0, cache: pnpm }
       - run: pnpm install --frozen-lockfile
       - run: pnpm format:check
       - run: pnpm lint
@@ -31,7 +31,7 @@ jobs:
       - uses: pnpm/action-setup@v4
         with: { version: 10.28.1 }
       - uses: actions/setup-node@v4
-        with: { node-version: 22, cache: pnpm }
+        with: { node-version: 24.18.0, cache: pnpm }
       - run: pnpm install --frozen-lockfile
       - run: pnpm --filter @apprentice-atlas/site exec playwright install --with-deps chromium firefox webkit
       - run: pnpm --filter @apprentice-atlas/site test:e2e
