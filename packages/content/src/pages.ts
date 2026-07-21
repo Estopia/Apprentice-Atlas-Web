@@ -1,4 +1,5 @@
 import type { StaticPage, LocalizedText } from './types';
+import { pageEditorial } from './page-editorial';
 
 type PageInput = {
   key: string;
@@ -15,7 +16,10 @@ type PageInput = {
   cta?: StaticPage['cta'];
 };
 
-const page = (input: PageInput): StaticPage => ({ ...input, sections: input.pillars });
+const page = (input: PageInput): StaticPage => ({
+  ...input,
+  sections: [...input.pillars, ...(pageEditorial[input.key] ?? [])],
+});
 
 export const staticPages: StaticPage[] = [
   page({

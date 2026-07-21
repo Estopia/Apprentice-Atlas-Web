@@ -142,6 +142,36 @@ function LibraryPage({ locale }: { locale: Locale }) {
 const glossary = [
   {
     de: [
+      'Anerkannter Ausbildungsberuf',
+      'Ein in Deutschland durch Ausbildungsordnung geregelter Beruf. Die Ordnung definiert Berufsbild, Dauer, Rahmenplan und Prüfungsanforderungen.',
+    ],
+    en: [
+      'Recognised training occupation',
+      'A German occupation governed by a national training regulation defining its profile, duration, framework and assessment requirements.',
+    ],
+  },
+  {
+    de: [
+      'Apprenticeship agreement',
+      'Die Vereinbarung über die Beschäftigung als Apprentice in England. Sie steht neben dem Trainingsplan mit Arbeitgeber und Training Provider.',
+    ],
+    en: [
+      'Apprenticeship agreement',
+      'The agreement covering employment as an apprentice in England. It sits alongside the training plan with the employer and provider.',
+    ],
+  },
+  {
+    de: [
+      'Apprenticeship Standard',
+      'Der berufsspezifische Standard in England, der die für kompetente Berufsausübung erforderlichen Kenntnisse, Fähigkeiten und Verhaltensweisen beschreibt.',
+    ],
+    en: [
+      'Apprenticeship standard',
+      'The occupation-specific standard in England describing the knowledge, skills and behaviours required for occupational competence.',
+    ],
+  },
+  {
+    de: [
       'Ausbildungsbetrieb',
       'Der Betrieb, mit dem ein Ausbildungsvertrag besteht und in dem der praktische Teil einer dualen Ausbildung stattfindet.',
     ],
@@ -151,8 +181,58 @@ const glossary = [
     ],
   },
   {
+    de: [
+      'Ausbildungsordnung',
+      'Die verbindliche Grundlage eines anerkannten deutschen Ausbildungsberufs. Sie enthält unter anderem Berufsbild, Rahmenplan und Prüfungsanforderungen.',
+    ],
+    en: [
+      'Training regulation',
+      'The binding basis of a recognised German training occupation, including its occupational profile, framework and assessment requirements.',
+    ],
+  },
+  {
+    de: [
+      'Ausbildungsplan',
+      'Die betriebliche Übersetzung des Ausbildungsrahmenplans: Welche Inhalte werden wann, durch wen, mit welchen Aufgaben und an welchem Lernort vermittelt?',
+    ],
+    en: [
+      'Company training plan',
+      'The employer’s translation of the national framework into what will be taught, when, by whom, through which tasks and at which location.',
+    ],
+  },
+  {
+    de: [
+      'Ausbildungsnachweis',
+      'Die laufende Dokumentation der vermittelten Inhalte und Tätigkeiten, häufig Berichtsheft genannt. Sie unterstützt Reflexion und kann für die Prüfungszulassung relevant sein.',
+    ],
+    en: [
+      'Training record',
+      'The continuing record of German apprenticeship content and activities. It supports reflection and may be relevant to examination admission.',
+    ],
+  },
+  {
     de: ['Berufsschule', 'Der schulische Lernort einer dualen Ausbildung in Deutschland.'],
     en: ['Vocational school', 'The school-based learning location in German dual training.'],
+  },
+  {
+    de: [
+      'Duale Ausbildung',
+      'Eine Berufsausbildung an den Lernorten Betrieb und Berufsschule mit Ausbildungsvertrag, Ausbildungsordnung und Abschlussprüfung.',
+    ],
+    en: [
+      'German dual training',
+      'Vocational training across an employer and vocational school, governed by a contract, training regulation and final examination.',
+    ],
+  },
+  {
+    de: [
+      'Duales Studium',
+      'Ein Studium, das Hochschulphasen mit umfangreicher betrieblicher Praxis verbindet. Vertragsform, Vergütung und anerkannter Berufsabschluss unterscheiden sich je Modell.',
+    ],
+    en: [
+      'Dual study programme',
+      'A German higher-education route combining university phases with substantial employer practice. Contract, pay and any vocational qualification vary by model.',
+    ],
   },
   {
     de: [
@@ -176,6 +256,16 @@ const glossary = [
   },
   {
     de: [
+      'Foundation Apprenticeship',
+      'Ein englischer Einstiegsweg, der jungen Menschen den Zugang zu einem Berufsfeld und den Übergang in ein weiterführendes Apprenticeship erleichtern soll. Alters- und Förderregeln sind aktuell zu prüfen.',
+    ],
+    en: [
+      'Foundation apprenticeship',
+      'An English entry route intended to help young people enter a sector and progress to a further apprenticeship. Current age and funding rules must be checked.',
+    ],
+  },
+  {
+    de: [
       'Kammer',
       'Zum Beispiel IHK oder HWK; sie überwacht viele Ausbildungsberufe, registriert Verträge und organisiert Prüfungen.',
     ],
@@ -186,12 +276,62 @@ const glossary = [
   },
   {
     de: [
+      'Level',
+      'Das Qualifikationsniveau eines UK Apprenticeships. Das Level allein beschreibt weder konkrete Aufgaben noch Qualität, Vergütung oder persönliche Passung.',
+    ],
+    en: [
+      'Level',
+      'The qualification level of a UK apprenticeship. Level alone does not describe its tasks, quality, pay or personal fit.',
+    ],
+  },
+  {
+    de: [
+      'Lernortkooperation',
+      'Die abgestimmte Zusammenarbeit von Betrieb, Berufsschule und gegebenenfalls überbetrieblichen Lernorten in einer deutschen Ausbildung.',
+    ],
+    en: [
+      'Learning-location cooperation',
+      'Coordination between the employer, vocational school and any external training centre in German dual training.',
+    ],
+  },
+  {
+    de: [
+      'Reasonable adjustments',
+      'Angemessene Anpassungen, die Barrieren für behinderte oder gesundheitlich beeinträchtigte Bewerbende und Apprentices reduzieren sollen. Bedarf und Verfahren werden mit der zuständigen Stelle geklärt.',
+    ],
+    en: [
+      'Reasonable adjustments',
+      'Changes intended to remove barriers for disabled applicants and apprentices. The need and process are agreed with the responsible organisation.',
+    ],
+  },
+  {
+    de: [
+      'Training Plan',
+      'Die Vereinbarung in einem englischen Apprenticeship, die Lerninhalte, Zeitplan, Durchführung, Unterstützung und Verantwortlichkeiten von Apprentice, Arbeitgeber und Provider festhält.',
+    ],
+    en: [
+      'Training plan',
+      'The plan in an English apprenticeship recording content, schedule, delivery, support and responsibilities across apprentice, employer and provider.',
+    ],
+  },
+  {
+    de: [
       'Training Provider',
       'Die Bildungseinrichtung, die im UK mit dem Arbeitgeber die strukturierte Ausbildung durchführt.',
     ],
     en: [
       'Training provider',
       'The organisation that works with a UK employer to deliver structured apprenticeship training.',
+    ],
+  },
+  {
+    de: [
+      'Überbetriebliche Ausbildung',
+      'Ausbildungsabschnitte außerhalb des eigenen Betriebs, wenn Inhalte dort nicht vollständig vermittelt werden können. Sie bleiben Bestandteil der Ausbildungszeit und müssen geplant sein.',
+    ],
+    en: [
+      'External vocational training',
+      'Planned German training phases outside the main employer where required content cannot be covered internally. They remain part of training time.',
     ],
   },
 ];
@@ -263,11 +403,11 @@ function CountryOrGlossary({ locale, path }: { locale: Locale; path: string }) {
               </p>
             </div>
             <div>
-              <span>300+</span>
+              <span>PLAN</span>
               <p>
                 {locale === 'de'
-                  ? 'anerkannte Ausbildungsberufe'
-                  : 'recognised training occupations'}
+                  ? 'Ausbildungsordnung plus betrieblicher Ausbildungsplan'
+                  : 'national regulation plus company training plan'}
               </p>
             </div>
           </>
@@ -291,6 +431,74 @@ function CountryOrGlossary({ locale, path }: { locale: Locale; path: string }) {
             </div>
           </>
         )}
+      </div>
+      <div className="country-explainer">
+        {(country === 'de'
+          ? locale === 'de'
+            ? [
+                {
+                  title: 'Vor der Unterschrift',
+                  body: 'Vertrag, Ausbildungsplan, Vergütung, Arbeitszeit, Lernorte und zuständige Kammer gemeinsam prüfen.',
+                },
+                {
+                  title: 'Während der Ausbildung',
+                  body: 'Betrieb vermittelt Praxis, Berufsschule ergänzt Theorie; Berichtsheft und Feedback machen Fortschritt sichtbar.',
+                },
+                {
+                  title: 'Wenn etwas fehlt',
+                  body: 'Erst benannte Ausbildungsperson, dann Berufsschule oder unabhängige Ausbildungsberatung der Kammer einbeziehen.',
+                },
+              ]
+            : [
+                {
+                  title: 'Before signing',
+                  body: 'Check the contract, company plan, pay, hours, learning locations and responsible chamber together.',
+                },
+                {
+                  title: 'During training',
+                  body: 'The employer teaches practice and school adds theory; training records and feedback make progress visible.',
+                },
+                {
+                  title: 'When something is missing',
+                  body: 'Start with the named trainer, then involve vocational school or independent chamber advisers.',
+                },
+              ]
+          : locale === 'de'
+            ? [
+                {
+                  title: 'Zuerst die Nation klären',
+                  body: 'England, Schottland, Wales und Nordirland haben eigene Regeln und Dienste. Dieser Hub markiert England-spezifische Aussagen.',
+                },
+                {
+                  title: 'Vacancy und Standard',
+                  body: 'Anzeige, Apprenticeship Standard, Level, Arbeitgeber, Provider und Trainingsplan getrennt prüfen.',
+                },
+                {
+                  title: 'Geschützte Lernzeit',
+                  body: 'Off-the-job Training findet in bezahlter Arbeitszeit statt und baut neue berufliche Kompetenz auf.',
+                },
+              ]
+            : [
+                {
+                  title: 'Establish the nation first',
+                  body: 'England, Scotland, Wales and Northern Ireland have distinct rules and services. This hub labels England-specific claims.',
+                },
+                {
+                  title: 'Vacancy and standard',
+                  body: 'Check the advert, apprenticeship standard, level, employer, provider and training plan separately.',
+                },
+                {
+                  title: 'Protected learning time',
+                  body: 'Off-the-job training takes place in paid working time and develops new occupational competence.',
+                },
+              ]
+        ).map((item, index) => (
+          <article key={item.title}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <h2>{item.title}</h2>
+            <p>{item.body}</p>
+          </article>
+        ))}
       </div>
       <div className="library-grid">
         {items.map((item) => (

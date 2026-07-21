@@ -1,11 +1,38 @@
 # Launch and rollback runbook
 
+## Current automation status
+
+GitHub Actions is temporarily disabled at repository level while the product and
+content are being developed. This prevents CI, container publishing, CodeQL and
+Dependabot workflow runs and their notifications. Local verification remains
+required before every commit:
+
+```sh
+pnpm format:check
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm --filter @apprentice-atlas/site test:e2e
+PAYLOAD_SECRET=container-build-only \
+  DATABASE_URI=postgres://postgres:postgres@127.0.0.1:5432/apprentice_atlas \
+  pnpm build
+```
+
+Re-enable automation before creating a release candidate, then enable the two
+manually disabled workflows:
+
+```sh
+gh api --method PUT repos/Estopia/Apprentice-Atlas-Web/actions/permissions -F enabled=true
+gh workflow enable 317555276 --repo Estopia/Apprentice-Atlas-Web
+gh workflow enable 317555277 --repo Estopia/Apprentice-Atlas-Web
+```
+
 ## Release candidate
 
 1. Freeze reviewed content and record the privacy/terms versions.
 2. Apply Supabase migrations in staging with `payload migrate` for CMS changes and
    the reviewed SQL files for web-owned tables. Never use schema push in production.
-3. Run CI, browser tests, manual keyboard/screen-reader checks, link checking and
+3. Re-enable Actions. Run CI, browser tests, manual keyboard/screen-reader checks, link checking and
    the content gate. Complete legal review and the DPIA before collecting data.
 4. Build both images once. Record their GHCR SHA-256 digests and deploy those exact
    digests to staging.

@@ -1,4 +1,5 @@
 import type { Resource, ResourceKind, Country, Audience, LocalizedText } from './types';
+import { editorialByResource } from './resource-editorial';
 
 const deSource = {
   label: 'Bundesagentur für Arbeit – Ausbildung',
@@ -53,6 +54,7 @@ const makeResource = (input: Input): Resource => ({
   reviewedAt: '2026-07-21',
   reviewer: 'Apprentice Atlas Editorial Team',
   sources:
+    editorialByResource[input.id]?.sources ??
     input.sources ??
     (input.country === 'de'
       ? [deSource, bibbSource]
@@ -88,6 +90,7 @@ const makeResource = (input: Input): Resource => ({
       },
       bullets: input.questions,
     },
+    ...(editorialByResource[input.id]?.sections ?? []),
   ],
 });
 
@@ -1277,7 +1280,25 @@ export const resources: Resource[] = [
       ],
     },
   }),
-];
+].map((resource) => {
+  const words = (locale: 'de' | 'en') =>
+    [
+      resource.description[locale],
+      ...resource.sections.flatMap((section) => [
+        section.heading[locale],
+        ...section.paragraphs[locale],
+        ...(section.bullets?.[locale] ?? []),
+      ]),
+    ]
+      .join(' ')
+      .trim()
+      .split(/\s+/).length;
+
+  return {
+    ...resource,
+    readMinutes: Math.max(3, Math.ceil(Math.max(words('de'), words('en')) / 180)),
+  };
+});
 
 export const getResource = (locale: 'de' | 'en', slug: string) =>
   resources.find((resource) => resource.slug[locale] === slug);

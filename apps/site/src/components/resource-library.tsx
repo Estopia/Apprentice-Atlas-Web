@@ -103,7 +103,9 @@ export function ResourceLibrary({ locale, resources }: { locale: Locale; resourc
                 <span>
                   {item.readMinutes} {d.minutes}
                 </span>
-                <b>↗</b>
+                <b>
+                  {locale === 'de' ? 'Öffnen' : 'Open'} <span aria-hidden="true">↗</span>
+                </b>
               </div>
             </Link>
           ))}

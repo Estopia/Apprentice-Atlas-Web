@@ -1,6 +1,8 @@
 import { resources, staticPages } from '@apprentice-atlas/content';
 import type { MetadataRoute } from 'next';
 
+const preLaunchLegalPages = new Set(['privacy', 'terms', 'imprint', 'accessibility-statement']);
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://apprenticeatlas.com';
   const updated = new Date('2026-07-21');
@@ -20,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: { languages: { de: `${base}/de`, en: `${base}/en` } },
     },
   ];
-  for (const item of staticPages)
+  for (const item of staticPages.filter((page) => !preLaunchLegalPages.has(page.key)))
     for (const locale of ['de', 'en'] as const)
       entries.push({
         url: `${base}/${locale}/${item.slug[locale]}`,

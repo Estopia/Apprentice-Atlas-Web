@@ -114,11 +114,15 @@ export function HomePage({ locale }: { locale: Locale }) {
             <div className="phone-top" />
             <p className="screen-kicker">{copy.screen2Kicker}</p>
             <h3>{copy.screen2Title}</h3>
-            <div className="match-ring">
-              <span>84%</span>
+            <div className="screen-comparison">
+              {copy.screen2Items.map((item, index) => (
+                <div key={item}>
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <p>{item}</p>
+                </div>
+              ))}
             </div>
-            <div className="screen-line wide" />
-            <div className="screen-line" />
+            <p className="screen-source">↗ {copy.screen2Source}</p>
           </div>
           <div className="phone phone-front">
             <div className="phone-top" />
@@ -137,6 +141,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             </div>
             <button tabIndex={-1}>{copy.screenButton} →</button>
           </div>
+          <p className="phone-disclaimer">{copy.previewNote}</p>
         </div>
         <div className="product-proof">
           {copy.proofs.map((proof, i) => (
@@ -304,7 +309,10 @@ const de = {
   screen1Kicker: 'Berufsfeld 06',
   screen1Title: 'Digital & IT',
   screen2Kicker: 'Dein Signal',
-  screen2Title: 'Systeme verstehen',
+  screen2Title: 'Zwei Wege prüfen',
+  screen2Items: ['Systemintegration', 'Softwareentwicklung', 'IT-Support'],
+  screen2Source: 'Quellen & Unterschiede öffnen',
+  previewNote: 'Prinzipdarstellung · kein Nutzerprofil und kein Match-Score',
   tag1: 'Probleme lösen',
   tag2: 'Im Team',
   screenButton: 'Berufsfeld erkunden',
@@ -419,7 +427,10 @@ const en = {
   screen1Kicker: 'Career field 06',
   screen1Title: 'Digital & tech',
   screen2Kicker: 'Your signal',
-  screen2Title: 'Understand systems',
+  screen2Title: 'Check three routes',
+  screen2Items: ['Infrastructure', 'Software development', 'IT support'],
+  screen2Source: 'Open sources and differences',
+  previewNote: 'Product principle · not a user profile or match score',
   tag1: 'Solve problems',
   tag2: 'Work in teams',
   screenButton: 'Explore this field',

@@ -42,3 +42,19 @@ test('reduced motion keeps the route static', async ({ page }) => {
   expect(durationMs).toBeLessThanOrEqual(0.01);
   await expect(page.locator('.route-path')).toHaveCSS('animation-iteration-count', '1');
 });
+
+test('country hubs explain system boundaries and the glossary has working depth', async ({
+  page,
+}) => {
+  await page.goto('/en/united-kingdom');
+  await expect(page.getByRole('heading', { name: 'Establish the nation first' })).toBeVisible();
+  await expect(page.getByText('England, Scotland, Wales and Northern Ireland')).toBeVisible();
+  await page.goto('/en/glossary');
+  await expect(page.locator('.glossary-page dl > div')).toHaveCount(20);
+});
+
+test('unreviewed legal copy is visibly marked and excluded from indexing', async ({ page }) => {
+  await page.goto('/en/privacy');
+  await expect(page.getByRole('note')).toContainText('Pre-launch draft');
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+});

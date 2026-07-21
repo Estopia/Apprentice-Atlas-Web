@@ -53,19 +53,43 @@ export function ResourcePageView({ resource, locale }: { resource: Resource; loc
       </header>
       <div className="resource-body">
         <aside>
-          <p>{d.reviewed}</p>
-          <strong>
-            {new Intl.DateTimeFormat(locale === 'de' ? 'de-DE' : 'en-GB', {
-              dateStyle: 'long',
-            }).format(new Date(resource.reviewedAt))}
-          </strong>
-          <p>{locale === 'de' ? 'Geprüft von' : 'Reviewed by'}</p>
-          <strong>{resource.reviewer}</strong>
+          <div className="resource-review">
+            <p>{d.reviewed}</p>
+            <strong>
+              {new Intl.DateTimeFormat(locale === 'de' ? 'de-DE' : 'en-GB', {
+                dateStyle: 'long',
+              }).format(new Date(resource.reviewedAt))}
+            </strong>
+            <p>{locale === 'de' ? 'Geprüft von' : 'Reviewed by'}</p>
+            <strong>{resource.reviewer}</strong>
+          </div>
+          <nav aria-label={locale === 'de' ? 'Inhalt dieses Guides' : 'In this guide'}>
+            <p>{locale === 'de' ? 'In diesem Guide' : 'In this guide'}</p>
+            <ol>
+              {resource.sections.map((section, index) => (
+                <li key={section.heading[locale]}>
+                  <a href={`#chapter-${index + 1}`}>
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    {section.heading[locale]}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
         </aside>
         <div className="article-copy">
           {resource.sections.map((section, i) => (
-            <section key={section.heading[locale]}>
+            <section
+              className={i >= 3 ? 'article-deep-dive' : undefined}
+              id={`chapter-${i + 1}`}
+              key={section.heading[locale]}
+            >
               <span>{String(i + 1).padStart(2, '0')}</span>
+              {i >= 3 && (
+                <p className="section-note">
+                  {locale === 'de' ? 'Vertiefung / Praxis' : 'Depth / practice'}
+                </p>
+              )}
               <h2>{section.heading[locale]}</h2>
               {section.paragraphs[locale].map((p) => (
                 <p key={p}>{p}</p>
@@ -98,8 +122,8 @@ export function ResourcePageView({ resource, locale }: { resource: Resource; loc
         </ul>
         <p>
           {locale === 'de'
-            ? 'Einen Fehler gefunden? Schreib an corrections@apprenticeatlas.com.'
-            : 'Found an error? Email corrections@apprenticeatlas.com.'}
+            ? 'Quellen belegen die fachliche Grundlage, nicht deine individuelle Situation. Prüfe Markt, Datum und konkrete Ausbildungsordnung oder Standard. Einen Fehler gefunden? Schreib an corrections@apprenticeatlas.com.'
+            : 'Sources support the factual foundation, not your individual situation. Check the market, date and exact regulation or standard. Found an error? Email corrections@apprenticeatlas.com.'}
         </p>
       </footer>
     </article>

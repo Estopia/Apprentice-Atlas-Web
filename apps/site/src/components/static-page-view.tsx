@@ -4,6 +4,9 @@ import { ButtonLink } from './button-link';
 import { PartnerForm } from './partner-form';
 
 export function StaticPageView({ page, locale }: { page: StaticPage; locale: Locale }) {
+  const isPreLaunchLegal = ['privacy', 'terms', 'imprint', 'accessibility-statement'].includes(
+    page.key,
+  );
   const cta =
     page.cta === 'partner'
       ? locale === 'de'
@@ -32,11 +35,33 @@ export function StaticPageView({ page, locale }: { page: StaticPage; locale: Loc
           <h1>{page.title[locale]}</h1>
           <p className="editorial-lede">{page.intro[locale]}</p>
         </header>
+        {isPreLaunchLegal && (
+          <div className="legal-draft" role="note">
+            <strong>{locale === 'de' ? 'Pre-Launch-Entwurf' : 'Pre-launch draft'}</strong>
+            <p>
+              {locale === 'de'
+                ? 'Diese Seite ist bewusst nicht indexiert. Sie wird erst nach juristischer beziehungsweise abschließender Barrierefreiheitsprüfung für den öffentlichen Launch freigegeben.'
+                : 'This page is deliberately not indexed. It will be approved for public launch only after legal or final accessibility review.'}
+            </p>
+          </div>
+        )}
         <div className="editorial-sections">
           {page.sections.map((section, index) => (
-            <section key={section.title[locale]}>
+            <section
+              className={
+                page.sections.length >= 5 && index >= page.sections.length - 2
+                  ? 'editorial-section--depth'
+                  : undefined
+              }
+              key={section.title[locale]}
+            >
               <span className="chapter">{String(index + 1).padStart(2, '0')}</span>
               <div>
+                {page.sections.length >= 5 && index >= page.sections.length - 2 && (
+                  <p className="section-note">
+                    {locale === 'de' ? 'Vertiefung / Praxis' : 'Depth / practice'}
+                  </p>
+                )}
                 <h2>{section.title[locale]}</h2>
                 <p>{section.body[locale]}</p>
                 {section.points && (
