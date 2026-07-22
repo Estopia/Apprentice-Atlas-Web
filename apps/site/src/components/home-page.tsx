@@ -142,18 +142,14 @@ export function HomePage({
               src="/images/app/dashboard.webp"
               alt={
                 locale === 'de'
-                  ? 'Echter Apprentice-Atlas-App-Screen mit Suche, gespeicherten Stellen, Fristen und persönlichen Vorschlägen.'
-                  : 'Real Apprentice Atlas app screen with search, saved opportunities, deadlines and personal suggestions.'
+                  ? 'App-Übersicht mit Suche, gespeicherten Stellen, Fristen und persönlichen Vorschlägen.'
+                  : 'App dashboard with search, saved opportunities, deadlines and personal suggestions.'
               }
               fill
               sizes="(max-width: 760px) 240px, 280px"
             />
           </div>
-          <p className="phone-disclaimer">
-            {locale === 'de'
-              ? 'Echte App-Screens · Entwicklungsstand Juli 2026'
-              : 'Real app screens · July 2026 build'}
-          </p>
+          <p className="phone-disclaimer">{locale === 'de' ? 'APP / EINBLICK' : 'APP / PREVIEW'}</p>
         </div>
         <div className="product-proof">
           {copy.proofs.map((proof, i) => (

@@ -90,16 +90,12 @@ export function StaticPageView({
             aria-label={locale === 'de' ? 'Einblicke in die App' : 'Inside the app'}
           >
             <header>
-              <p className="eyebrow">PRODUCT / REAL SCREENS</p>
-              <h2>
-                {locale === 'de'
-                  ? 'So sieht der Atlas heute aus.'
-                  : 'What the Atlas looks like today.'}
-              </h2>
+              <p className="eyebrow">PRODUCT / APP</p>
+              <h2>{locale === 'de' ? 'Ein Blick in den Atlas.' : 'A look inside the Atlas.'}</h2>
               <p>
                 {locale === 'de'
-                  ? 'Echte Screens aus dem aktuellen Entwicklungsstand: Chancen entdecken, Details nachvollziehen und den nächsten Schritt organisieren.'
-                  : 'Real screens from the current build: discover opportunities, understand the detail and organise what comes next.'}
+                  ? 'Chancen entdecken, Details nachvollziehen und den nächsten Schritt organisieren.'
+                  : 'Discover opportunities, understand the detail and organise what comes next.'}
               </p>
             </header>
             <div>

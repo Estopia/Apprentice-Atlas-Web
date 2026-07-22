@@ -1,9 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+import { bypassLocaleRouting } from '@/lib/request-path';
+
 const supported = ['de', 'en'];
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  if (bypassLocaleRouting(pathname)) {
+    return NextResponse.next();
+  }
   if (pathname === '/') {
     const language = request.headers.get('accept-language')?.toLowerCase() ?? '';
     return NextResponse.redirect(new URL(language.startsWith('de') ? '/de' : '/en', request.url));
@@ -23,5 +28,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next|favicon.ico|icon.svg|robots.txt|sitemap.xml).*)'],
+  matcher: ['/((?!_next).*)'],
 };
