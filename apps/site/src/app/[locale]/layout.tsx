@@ -4,6 +4,7 @@ import { getDictionary, type Locale } from '@apprentice-atlas/content';
 import { Consent } from '@/components/consent';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
+import { getCallsToAction, getSiteFooter, getSiteNavigation } from '@/lib/cms/content';
 import { requireLocale } from '@/lib/i18n';
 import '../globals.css';
 
@@ -36,6 +37,11 @@ type Props = Readonly<{
 export default async function LocaleLayout({ children, params }: Props) {
   const locale = requireLocale((await params).locale) as Locale;
   const dictionary = getDictionary(locale);
+  const [navigation, footer, callsToAction] = await Promise.all([
+    getSiteNavigation(locale),
+    getSiteFooter(locale),
+    getCallsToAction(locale),
+  ]);
 
   return (
     <html
@@ -49,9 +55,9 @@ export default async function LocaleLayout({ children, params }: Props) {
             {dictionary.skip}
           </a>
         </nav>
-        <SiteHeader locale={locale} />
+        <SiteHeader callsToAction={callsToAction} locale={locale} navigation={navigation} />
         <main id="main">{children}</main>
-        <SiteFooter locale={locale} />
+        <SiteFooter footer={footer} locale={locale} navigation={navigation} />
         <Consent locale={locale} />
       </body>
     </html>

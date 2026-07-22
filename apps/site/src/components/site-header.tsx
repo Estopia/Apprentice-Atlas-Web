@@ -1,10 +1,19 @@
-import { getDictionary, navigation, localPath, type Locale } from '@apprentice-atlas/content';
+import { getDictionary, localPath, type Locale, type NavGroup } from '@apprentice-atlas/content';
 import Link from 'next/link';
+import type { CallsToAction } from '@/lib/cms/types';
 import { AtlasMark } from './atlas-mark';
 import { ButtonLink } from './button-link';
 import { LanguageLink } from './language-link';
 
-export function SiteHeader({ locale }: { locale: Locale }) {
+export function SiteHeader({
+  callsToAction,
+  locale,
+  navigation,
+}: {
+  callsToAction: CallsToAction;
+  locale: Locale;
+  navigation: NavGroup[];
+}) {
   const d = getDictionary(locale);
   return (
     <header className="site-header">
@@ -41,10 +50,13 @@ export function SiteHeader({ locale }: { locale: Locale }) {
         <div className="header-actions">
           <LanguageLink locale={locale} />
           <ButtonLink
-            href={localPath(locale, locale === 'de' ? '/pilotpartner' : '/pilot-partners')}
+            href={localPath(
+              locale,
+              callsToAction.pilot?.href ?? (locale === 'de' ? '/pilotpartner' : '/pilot-partners'),
+            )}
             arrow={false}
           >
-            {d.pilot}
+            {callsToAction.pilot?.label ?? d.pilot}
           </ButtonLink>
         </div>
         <details className="mobile-menu">

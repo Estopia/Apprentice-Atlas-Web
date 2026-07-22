@@ -1,4 +1,5 @@
-import { resources, type Locale } from '@apprentice-atlas/content';
+import type { Locale } from '@apprentice-atlas/content';
+import { getSiteResources, resourceSearchText } from '@/lib/cms/content';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
@@ -9,13 +10,11 @@ export async function GET(request: NextRequest) {
     .slice(0, 100);
   const country = request.nextUrl.searchParams.get('country');
   const kind = request.nextUrl.searchParams.get('format');
+  const resources = await getSiteResources(locale);
   const results = resources
     .filter(
       (item) =>
-        (!query ||
-          `${item.title[locale]} ${item.description[locale]}`
-            .toLocaleLowerCase(locale)
-            .includes(query)) &&
+        (!query || resourceSearchText(item, locale).toLocaleLowerCase(locale).includes(query)) &&
         (!country || item.country === country || item.country === 'both') &&
         (!kind || item.kind === kind),
     )

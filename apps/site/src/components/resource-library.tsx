@@ -79,7 +79,7 @@ export function ResourceLibrary({ locale, resources }: { locale: Locale; resourc
         ))}
       </div>
       <p className="result-count">
-        {filtered.length} {locale === 'de' ? 'Inhalte' : 'resources'} / 28
+        {filtered.length} {locale === 'de' ? 'Inhalte' : 'resources'} / {resources.length}
       </p>
       {filtered.length ? (
         <div className="library-grid">

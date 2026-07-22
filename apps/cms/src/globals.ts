@@ -1,11 +1,14 @@
 import type { GlobalConfig } from 'payload';
 import { hasRole } from './access';
+import { revalidateGlobal } from './hooks/revalidate';
 
 const globalAccess = { read: () => true, update: hasRole('admin', 'publisher') };
+const globalHooks = { afterChange: [revalidateGlobal] };
 
 export const Navigation: GlobalConfig = {
   slug: 'navigation',
   access: globalAccess,
+  hooks: globalHooks,
   fields: [
     {
       name: 'items',
@@ -23,6 +26,7 @@ export const Navigation: GlobalConfig = {
 export const Footer: GlobalConfig = {
   slug: 'footer',
   access: globalAccess,
+  hooks: globalHooks,
   fields: [
     {
       name: 'copyright',
@@ -44,6 +48,7 @@ export const Footer: GlobalConfig = {
 export const Contact: GlobalConfig = {
   slug: 'contact',
   access: globalAccess,
+  hooks: globalHooks,
   fields: [
     {
       name: 'generalEmail',
@@ -74,6 +79,7 @@ export const Contact: GlobalConfig = {
 export const StoreTargets: GlobalConfig = {
   slug: 'store-targets',
   access: globalAccess,
+  hooks: globalHooks,
   fields: [
     {
       name: 'mode',
@@ -92,6 +98,7 @@ export const StoreTargets: GlobalConfig = {
 export const SocialLinks: GlobalConfig = {
   slug: 'social-links',
   access: globalAccess,
+  hooks: globalHooks,
   fields: [
     {
       name: 'links',
@@ -107,6 +114,7 @@ export const ConsentTexts: GlobalConfig = {
   slug: 'consent-texts',
   access: globalAccess,
   versions: { drafts: true },
+  hooks: globalHooks,
   fields: [
     { name: 'version', type: 'text', required: true },
     { name: 'locale', type: 'select', required: true, options: ['de', 'en'] },
@@ -119,6 +127,7 @@ export const ConsentTexts: GlobalConfig = {
 export const CallsToAction: GlobalConfig = {
   slug: 'calls-to-action',
   access: globalAccess,
+  hooks: globalHooks,
   fields: [
     {
       name: 'items',

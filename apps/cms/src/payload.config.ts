@@ -101,5 +101,21 @@ export default buildConfig({
     process.env.CMS_PUBLIC_URL ?? 'http://localhost:3001',
   ],
   sharp,
+  onInit: async (payload) => {
+    if (process.env.CMS_AUTO_BOOTSTRAP !== 'true') return;
+    const [pages, guides, articles, careerFields] = await Promise.all([
+      payload.count({ collection: 'pages', overrideAccess: true }),
+      payload.count({ collection: 'guides', overrideAccess: true }),
+      payload.count({ collection: 'articles', overrideAccess: true }),
+      payload.count({ collection: 'career-fields', overrideAccess: true }),
+    ]);
+    if (pages.totalDocs + guides.totalDocs + articles.totalDocs + careerFields.totalDocs > 0)
+      return;
+    payload.logger.info(
+      'Empty editorial database detected; importing the reviewed launch content.',
+    );
+    const { seedContent } = await import('./scripts/seed');
+    await seedContent(payload);
+  },
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
 });

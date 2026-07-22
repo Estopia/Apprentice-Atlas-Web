@@ -1,10 +1,22 @@
-import { getDictionary, localPath, resources, type Locale } from '@apprentice-atlas/content';
+import { getDictionary, localPath, type Locale } from '@apprentice-atlas/content';
+import Image from 'next/image';
 import Link from 'next/link';
+import type { CallsToAction, SiteResource } from '@/lib/cms/types';
 import { ButtonLink } from './button-link';
 import { PartnerForm } from './partner-form';
 import { WaitlistForm } from './waitlist-form';
 
-export function HomePage({ locale }: { locale: Locale }) {
+export function HomePage({
+  locale,
+  featuredResources,
+  callsToAction,
+  resourceCount,
+}: {
+  locale: Locale;
+  featuredResources: SiteResource[];
+  callsToAction: CallsToAction;
+  resourceCount: number;
+}) {
   const d = getDictionary(locale);
   const copy = locale === 'de' ? de : en;
   return (
@@ -23,15 +35,22 @@ export function HomePage({ locale }: { locale: Locale }) {
           <p className="hero-intro">{copy.intro}</p>
           <div className="button-row">
             <ButtonLink
-              href={localPath(locale, locale === 'de' ? '/pilotpartner' : '/pilot-partners')}
+              href={localPath(
+                locale,
+                callsToAction.pilot?.href ??
+                  (locale === 'de' ? '/pilotpartner' : '/pilot-partners'),
+              )}
             >
-              {d.pilot}
+              {callsToAction.pilot?.label ?? d.pilot}
             </ButtonLink>
             <ButtonLink
-              href={localPath(locale, locale === 'de' ? '/produkt/app' : '/product/app')}
+              href={localPath(
+                locale,
+                callsToAction.app?.href ?? (locale === 'de' ? '/produkt/app' : '/product/app'),
+              )}
               variant="secondary"
             >
-              {d.app}
+              {callsToAction.app?.label ?? d.app}
             </ButtonLink>
           </div>
         </div>
@@ -110,38 +129,31 @@ export function HomePage({ locale }: { locale: Locale }) {
           </ButtonLink>
         </div>
         <div className="phone-stage" aria-label={copy.appPreviewLabel}>
-          <div className="phone phone-back">
-            <div className="phone-top" />
-            <p className="screen-kicker">{copy.screen2Kicker}</p>
-            <h3>{copy.screen2Title}</h3>
-            <div className="screen-comparison">
-              {copy.screen2Items.map((item, index) => (
-                <div key={item}>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  <p>{item}</p>
-                </div>
-              ))}
-            </div>
-            <p className="screen-source">↗ {copy.screen2Source}</p>
+          <div className="phone phone-back" aria-hidden="true">
+            <Image
+              src="/images/app/opportunity-detail.webp"
+              alt=""
+              fill
+              sizes="(max-width: 760px) 240px, 280px"
+            />
           </div>
           <div className="phone phone-front">
-            <div className="phone-top" />
-            <div className="screen-route">
-              <span>YOUR ROUTE</span>
-              <i />
-            </div>
-            <p className="screen-kicker">{copy.screen1Kicker}</p>
-            <h3>{copy.screen1Title}</h3>
-            <div className="screen-photo">
-              <span>FIELD / 06</span>
-            </div>
-            <div className="screen-tags">
-              <span>{copy.tag1}</span>
-              <span>{copy.tag2}</span>
-            </div>
-            <button tabIndex={-1}>{copy.screenButton} →</button>
+            <Image
+              src="/images/app/dashboard.webp"
+              alt={
+                locale === 'de'
+                  ? 'Echter Apprentice-Atlas-App-Screen mit Suche, gespeicherten Stellen, Fristen und persönlichen Vorschlägen.'
+                  : 'Real Apprentice Atlas app screen with search, saved opportunities, deadlines and personal suggestions.'
+              }
+              fill
+              sizes="(max-width: 760px) 240px, 280px"
+            />
           </div>
-          <p className="phone-disclaimer">{copy.previewNote}</p>
+          <p className="phone-disclaimer">
+            {locale === 'de'
+              ? 'Echte App-Screens · Entwicklungsstand Juli 2026'
+              : 'Real app screens · July 2026 build'}
+          </p>
         </div>
         <div className="product-proof">
           {copy.proofs.map((proof, i) => (
@@ -202,19 +214,26 @@ export function HomePage({ locale }: { locale: Locale }) {
       <section className="resource-feature atlas-section">
         <div className="section-index">
           <span>04</span>
-          <p>{copy.libraryEyebrow}</p>
+          <p>
+            {locale === 'de'
+              ? `Bibliothek / ${resourceCount} Guides`
+              : `Library / ${resourceCount} guides`}
+          </p>
         </div>
         <div className="section-heading">
           <h2>{copy.libraryTitle}</h2>
           <ButtonLink
-            href={localPath(locale, locale === 'de' ? '/ressourcen' : '/resources')}
+            href={localPath(
+              locale,
+              callsToAction.resources?.href ?? (locale === 'de' ? '/ressourcen' : '/resources'),
+            )}
             variant="secondary"
           >
-            {d.allResources}
+            {callsToAction.resources?.label ?? d.allResources}
           </ButtonLink>
         </div>
         <div className="resource-grid">
-          {resources.slice(0, 4).map((item, i) => (
+          {featuredResources.map((item, i) => (
             <Link
               key={item.id}
               href={localPath(

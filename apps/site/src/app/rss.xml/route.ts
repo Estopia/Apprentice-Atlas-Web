@@ -1,4 +1,4 @@
-import { resources } from '@apprentice-atlas/content';
+import { getSiteResources } from '@/lib/cms/content';
 import { NextResponse } from 'next/server';
 
 const escape = (value: string) =>
@@ -6,8 +6,9 @@ const escape = (value: string) =>
     /[<>&'\"]/g,
     (char) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', "'": '&apos;', '"': '&quot;' })[char]!,
   );
-export function GET() {
+export async function GET() {
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://apprenticeatlas.com';
+  const resources = await getSiteResources('en');
   const items = resources
     .filter((item) => item.kind === 'insight')
     .map(

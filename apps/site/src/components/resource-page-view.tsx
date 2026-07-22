@@ -1,10 +1,19 @@
-import { getDictionary, localPath, type Locale, type Resource } from '@apprentice-atlas/content';
+import { getDictionary, localPath, type Locale } from '@apprentice-atlas/content';
 import Link from 'next/link';
+import { lexicalHeadings } from '@/lib/cms/rich-text';
+import type { SiteResource } from '@/lib/cms/types';
 import { JsonLd } from './json-ld';
 import { AnalyticsEvent } from './analytics-event';
+import { RichText } from './rich-text';
 
-export function ResourcePageView({ resource, locale }: { resource: Resource; locale: Locale }) {
+export function ResourcePageView({ resource, locale }: { resource: SiteResource; locale: Locale }) {
   const d = getDictionary(locale);
+  const headings = resource.cmsBody
+    ? lexicalHeadings(resource.cmsBody)
+    : resource.sections.map((section, index) => ({
+        id: `chapter-${index + 1}`,
+        text: section.heading[locale],
+      }));
   const url = `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://apprenticeatlas.com'}${localPath(locale, `${locale === 'de' ? '/ressourcen' : '/resources'}/${resource.slug[locale]}`)}`;
   return (
     <article className="resource-page">
@@ -66,11 +75,11 @@ export function ResourcePageView({ resource, locale }: { resource: Resource; loc
           <nav aria-label={locale === 'de' ? 'Inhalt dieses Guides' : 'In this guide'}>
             <p>{locale === 'de' ? 'In diesem Guide' : 'In this guide'}</p>
             <ol>
-              {resource.sections.map((section, index) => (
-                <li key={section.heading[locale]}>
-                  <a href={`#chapter-${index + 1}`}>
+              {headings.map((heading, index) => (
+                <li key={heading.id}>
+                  <a href={`#${heading.id}`}>
                     <span>{String(index + 1).padStart(2, '0')}</span>
-                    {section.heading[locale]}
+                    {heading.text}
                   </a>
                 </li>
               ))}
@@ -78,31 +87,35 @@ export function ResourcePageView({ resource, locale }: { resource: Resource; loc
           </nav>
         </aside>
         <div className="article-copy">
-          {resource.sections.map((section, i) => (
-            <section
-              className={i >= 3 ? 'article-deep-dive' : undefined}
-              id={`chapter-${i + 1}`}
-              key={section.heading[locale]}
-            >
-              <span>{String(i + 1).padStart(2, '0')}</span>
-              {i >= 3 && (
-                <p className="section-note">
-                  {locale === 'de' ? 'Vertiefung / Praxis' : 'Depth / practice'}
-                </p>
-              )}
-              <h2>{section.heading[locale]}</h2>
-              {section.paragraphs[locale].map((p) => (
-                <p key={p}>{p}</p>
-              ))}
-              {section.bullets && (
-                <ul>
-                  {section.bullets[locale].map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
-              )}
-            </section>
-          ))}
+          {resource.cmsBody ? (
+            <RichText document={resource.cmsBody} className="resource-rich-text" />
+          ) : (
+            resource.sections.map((section, i) => (
+              <section
+                className={i >= 3 ? 'article-deep-dive' : undefined}
+                id={`chapter-${i + 1}`}
+                key={section.heading[locale]}
+              >
+                <span>{String(i + 1).padStart(2, '0')}</span>
+                {i >= 3 && (
+                  <p className="section-note">
+                    {locale === 'de' ? 'Vertiefung / Praxis' : 'Depth / practice'}
+                  </p>
+                )}
+                <h2>{section.heading[locale]}</h2>
+                {section.paragraphs[locale].map((p) => (
+                  <p key={p}>{p}</p>
+                ))}
+                {section.bullets && (
+                  <ul>
+                    {section.bullets[locale].map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            ))
+          )}
         </div>
       </div>
       <footer className="source-box">

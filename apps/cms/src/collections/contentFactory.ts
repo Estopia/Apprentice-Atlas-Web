@@ -1,5 +1,6 @@
 import type { CollectionConfig, CollectionBeforeValidateHook } from 'payload';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
+import { createHmac } from 'node:crypto';
 import { hasRole, publishedOrAuthenticated } from '../access';
 import {
   editorialGovernanceFields,
@@ -35,6 +36,19 @@ const validateLocaleSlug: CollectionBeforeValidateHook = async ({
   return data;
 };
 
+const previewUrl = (collection: string, doc: Record<string, unknown>) => {
+  const locale = typeof doc.locale === 'string' ? doc.locale : 'en';
+  const slug = typeof doc.slug === 'string' ? doc.slug : '';
+  const secret = process.env.PREVIEW_SECRET;
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+  const prefix = collection === 'pages' ? '' : locale === 'de' ? 'ressourcen/' : 'resources/';
+  const path = `/${locale}/${prefix}${slug}`;
+  if (!secret) return `${base}${path}`;
+  const expires = Date.now() + 10 * 60_000;
+  const signature = createHmac('sha256', secret).update(`${path}|${expires}`).digest('hex');
+  return `${base}/preview?path=${encodeURIComponent(path)}&expires=${expires}&signature=${signature}`;
+};
+
 export const editorialCollection = (
   slug: 'pages' | 'articles' | 'guides' | 'career-fields',
   label: string,
@@ -45,6 +59,7 @@ export const editorialCollection = (
     useAsTitle: 'title',
     group: 'Editorial',
     defaultColumns: ['title', 'locale', '_status', 'reviewedAt', 'updatedAt'],
+    preview: (doc) => previewUrl(slug, doc),
   },
   access: {
     read: publishedOrAuthenticated,

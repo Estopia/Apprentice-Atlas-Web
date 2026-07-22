@@ -1,11 +1,21 @@
-import { getDictionary, navigation, localPath, type Locale } from '@apprentice-atlas/content';
+import { getDictionary, localPath, type Locale, type NavGroup } from '@apprentice-atlas/content';
 import Link from 'next/link';
+import type { SiteFooterSettings } from '@/lib/cms/types';
 import { AtlasMark } from './atlas-mark';
 
-export function SiteFooter({ locale }: { locale: Locale }) {
+export function SiteFooter({
+  footer,
+  locale,
+  navigation,
+}: {
+  footer: SiteFooterSettings;
+  locale: Locale;
+  navigation: NavGroup[];
+}) {
   const d = getDictionary(locale);
-  const legal: Array<{ label: string; path: string }> =
-    locale === 'de'
+  const legal: Array<{ label: string; path: string }> = footer.links.length
+    ? footer.links.map((link) => ({ label: link.label, path: link.href }))
+    : locale === 'de'
       ? [
           { label: 'Datenschutz', path: '/datenschutz' },
           { label: 'Nutzungsbedingungen', path: '/nutzungsbedingungen' },
@@ -31,7 +41,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         <div className="footer-brand">
           <AtlasMark />
           <p>{d.footerClaim}</p>
-          <a href="mailto:hello@apprenticeatlas.com">hello@apprenticeatlas.com</a>
+          <a href={`mailto:${footer.generalEmail}`}>{footer.generalEmail}</a>
         </div>
         {navigation.slice(0, 3).map((group) => (
           <div className="footer-column" key={group.key}>
@@ -56,7 +66,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>© 2026 Estopia Engineering Ltd</p>
+        <p>{footer.copyright}</p>
         <p>
           {locale === 'de'
             ? 'Gebaut zwischen Manchester, Berlin und dem nächsten Schritt.'

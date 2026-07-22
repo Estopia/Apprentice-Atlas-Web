@@ -5,6 +5,7 @@ export const Media: CollectionConfig = {
   slug: 'media',
   access: { read: () => true, create: authenticated, update: authenticated, delete: authenticated },
   upload: {
+    staticDir: process.env.MEDIA_DIR ?? 'media',
     imageSizes: [
       { name: 'thumbnail', width: 480, height: 320, position: 'centre', withoutEnlargement: true },
       { name: 'card', width: 960, height: 640, position: 'centre', withoutEnlargement: true },
